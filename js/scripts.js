@@ -27,32 +27,27 @@ function numberOfOccurencesInText(word, text) {
   return text.match(regex).length;
 }
 
-
-function boldPassage(word, text) {
-  if (noInputtedWord(word, text)) {
-    return "";
-  }
-  const regexWord = new RegExp(word, "gi");
-  const boldedWord = "<b>" + word + "</b>";
-  const htmlString = text.replace(regexWord, boldedWord);
-  return "<p>" + htmlString + "</p>";
+function mostCommonWord(str) {
+  const wordArray = str.split(" ");
+  let result = '<p>'
+  wordArray.forEach(function(element) {
+    result += element.concat(" : " +  numberOfOccurencesInText(element, str)) + '<br>';
+  })
+  return result + '</p>';
 }
+//User Interface
+    $(document).ready(function() {
+      $("#word-counter").submit(function(event) {
+        event.preventDefault();
 
+      const passage = $("#text-passage").val();
+      const word = $("#word").val();
 
-// //User Interface
-//     $(document).ready(function() {
-//       $("#word-counter").submit(function(event) {
-//         event.preventDefault();
-
-//       const passage = $("#text-passage").val();
-//       const word = $("#word").val();
-
-//       const wordCount = wordCounter(passage);
-//       const occuredNumber = numberOfOccurencesInText(word, passage);
-//       $("#total-count").text(wordCount);
-//       $("#selected-count").text(occuredNumber);
-//       $("#bolded-passage").html(boldPassage(word, passage));
-
-
-//   })
-// })
+      const wordCount = wordCounter(passage);
+      const occuredNumber = numberOfOccurencesInText(word, passage);
+      const mostCommon = mostCommonWord(passage);
+      $("#total-count").text(wordCount);
+      $("#selected-count").text(occuredNumber);
+      $("#most-common-word").html(mostCommon)
+  })
+})
