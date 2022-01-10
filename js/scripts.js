@@ -19,13 +19,13 @@ function wordCounter(text) {
   return wordCount;
 }
 
-// function numberOfOccurencesInText(word, text) {
-//   if (noInputtedWord(word, text)) {
-//     return 0;
-//   }
-//   const regex = new RegExp(word, "gi");
-//   return text.match(regex).length;
-// }
+function numberOfOccurencesInText(word, text) {
+  if (noInputtedWord(word, text)) {
+    return 0;
+  }
+  const regex = new RegExp(word, "gi");
+  return text.match(regex).length;
+}
 
 
 // function boldPassage(word, text) {
