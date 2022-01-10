@@ -28,15 +28,15 @@ function numberOfOccurencesInText(word, text) {
 }
 
 
-// function boldPassage(word, text) {
-//   if (noInputtedWord(word, text)) {
-//     return "";
-//   }
-//   const regexWord = new RegExp(word, "gi");
-//   const boldedWord = "<b>" + word + "</b>";
-//   const htmlString = text.replace(regexWord, boldedWord);
-//   return "<p>" + htmlString + "</p>";
-// }
+function boldPassage(word, text) {
+  if (noInputtedWord(word, text)) {
+    return "";
+  }
+  const regexWord = new RegExp(word, "gi");
+  const boldedWord = "<b>" + word + "</b>";
+  const htmlString = text.replace(regexWord, boldedWord);
+  return "<p>" + htmlString + "</p>";
+}
 
 
 // //User Interface
